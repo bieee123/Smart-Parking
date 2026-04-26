@@ -137,7 +137,11 @@ export default function ParkingMap() {
       {/* No results */}
       {!loading && slots.length === 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-12 text-center">
-          <p className="text-4xl mb-3">🅿️</p>
+          <div className="flex justify-center mb-3">
+            <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 11V7a2 2 0 012-2h10a2 2 0 012 2v4m-9 4h4m-6 0a2 2 0 00-2 2v2a2 2 0 002 2h8a2 2 0 002-2v-2a2 2 0 00-2-2H9z" />
+            </svg>
+          </div>
           <p className="text-gray-600 font-medium">No parking slots found</p>
           <p className="text-gray-400 text-sm mt-1">Try adjusting your filters</p>
         </div>

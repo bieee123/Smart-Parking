@@ -99,8 +99,27 @@ export default function SlotModal({ slot, onClose, onUpdate }) {
   };
 
   const tabs = [
-    { id: 'details', label: 'Details', icon: '📋' },
-    { id: 'logs', label: 'Logs', icon: '📜' },
+    { 
+      id: 'details', 
+      label: 'Details', 
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+          <rect x="4" y="3" width="16" height="18" rx="2"/>
+          <path d="M8 7h8M8 11h8M8 15h5"/>
+        </svg>
+      )
+    },
+    { 
+      id: 'logs', 
+      label: 'Logs', 
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+          <path d="M3 5h18M3 10h18M3 15h12M3 20h8"/>
+          <circle cx="19" cy="17.5" r="3"/>
+          <path d="M19 16v2M19 20v.01"/>
+        </svg>
+      )
+    },
   ];
 
   return (
@@ -190,8 +209,43 @@ export default function SlotModal({ slot, onClose, onUpdate }) {
               {slot.vehicle_type && (
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Vehicle</span>
-                  <span className="text-sm font-medium text-gray-900 capitalize">
-                    {slot.vehicle_type === 'motorcycle' ? '🏍️ Motorcycle' : slot.vehicle_type === 'car' ? '🚗 Car' : slot.vehicle_type === 'truck' ? '🚛 Truck' : slot.vehicle_type}
+                  <span className="text-sm font-medium text-gray-900 capitalize flex items-center gap-1.5">
+                    {slot.vehicle_type === 'motorcycle' ? (
+                      <>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                          <circle cx="5.5" cy="15.5" r="2.5"/>
+                          <circle cx="18.5" cy="15.5" r="2.5"/>
+                          <path d="M8 15.5h7"/>
+                          <path d="M15 6h2l2 4.5"/>
+                          <path d="M9 6l3 4.5h4.5"/>
+                          <path d="M9 6H7l-1.5 4"/>
+                        </svg>
+                        Motorcycle
+                      </>
+                    ) : slot.vehicle_type === 'car' ? (
+                      <>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                          <path d="M7 17H5a2 2 0 01-2-2v-3l2-6h14l2 6v3a2 2 0 01-2 2h-2"/>
+                          <path d="M7 17h10"/>
+                          <circle cx="7" cy="17" r="2"/>
+                          <circle cx="17" cy="17" r="2"/>
+                          <path d="M5 12h14"/>
+                          <path d="M8 6l-1 6M16 6l1 6"/>
+                        </svg>
+                        Car
+                      </>
+                    ) : slot.vehicle_type === 'truck' ? (
+                      <>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                          <rect x="1" y="6" width="13" height="11" rx="1"/>
+                          <path d="M14 9h4l3 4v4h-7V9z"/>
+                          <circle cx="5.5" cy="18.5" r="1.5"/>
+                          <circle cx="18.5" cy="18.5" r="1.5"/>
+                          <path d="M14 13h4"/>
+                        </svg>
+                        Truck
+                      </>
+                    ) : slot.vehicle_type}
                   </span>
                 </div>
               )}
@@ -250,9 +304,13 @@ export default function SlotModal({ slot, onClose, onUpdate }) {
                 {!editMode ? (
                   <button
                     onClick={() => setEditMode(true)}
-                    className="w-full py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors text-sm"
+                    className="w-full py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors text-sm flex items-center justify-center gap-1.5"
                   >
-                    ✏️ Edit Slot
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                      <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Edit Slot
                   </button>
                 ) : (
                   <div className="space-y-3">
@@ -319,9 +377,25 @@ export default function SlotModal({ slot, onClose, onUpdate }) {
                       <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="flex-1 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors text-sm disabled:opacity-50"
+                        className="flex-1 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors text-sm disabled:opacity-50 flex items-center justify-center gap-1.5"
                       >
-                        {saving ? 'Saving...' : '💾 Save'}
+                        {saving ? (
+                          <>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 animate-spin">
+                              <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                            </svg>
+                            Saving...
+                          </>
+                        ) : (
+                          <>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                              <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                              <path d="M17 21v-8H7v8"/>
+                              <path d="M7 3v5h8"/>
+                            </svg>
+                            Save
+                          </>
+                        )}
                       </button>
                       <button
                         onClick={() => {

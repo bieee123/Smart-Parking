@@ -6,9 +6,9 @@ const ZONES = ['all', 'A', 'B', 'C'];
 // Vehicle type options
 const VEHICLE_TYPES = [
   { value: '', label: 'All Types' },
-  { value: 'car', label: '🚗 Car' },
-  { value: 'motorcycle', label: '🏍️ Motorcycle' },
-  { value: 'truck', label: '🚛 Truck' },
+  { value: 'car', label: 'Car' },
+  { value: 'motorcycle', label: 'Motorcycle' },
+  { value: 'truck', label: 'Truck' },
 ];
 
 export default function FilterBar({ zone, setZone, vehicleType, setVehicleType, search, setSearch }) {
@@ -83,9 +83,12 @@ export default function FilterBar({ zone, setZone, vehicleType, setVehicleType, 
             />
             <button
               type="submit"
-              className="px-4 py-1.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-4 py-1.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center"
             >
-              🔍
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="M21 21l-4.35-4.35"/>
+              </svg>
             </button>
             {(search || searchInput) && (
               <button

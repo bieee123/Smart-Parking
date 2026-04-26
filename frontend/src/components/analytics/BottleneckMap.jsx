@@ -33,14 +33,36 @@ export default function BottleneckMap({ bottlenecks, title }) {
         }} />
 
         {/* Area labels */}
-        <div className="absolute top-3 left-4 text-xs font-medium text-slate-500 bg-white/70 px-2 py-1 rounded">
-          🅿️ Area A — Downtown
+        <div className="absolute top-3 left-4 flex items-center gap-1.5 text-xs font-medium text-slate-500 bg-white/80 backdrop-blur-sm px-2 py-1 rounded border border-slate-200 shadow-sm">
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="3" width="7" height="9" rx="1"/>
+            <rect x="14" y="3" width="7" height="5" rx="1"/>
+            <rect x="14" y="12" width="7" height="9" rx="1"/>
+            <rect x="3" y="16" width="7" height="5" rx="1"/>
+            <path d="M7 12v4M17 8v4"/>
+          </svg>
+          <span>Area A — Downtown</span>
         </div>
-        <div className="absolute top-3 right-4 text-xs font-medium text-slate-500 bg-white/70 px-2 py-1 rounded">
-          🏬 Area B — Mall
+
+        <div className="absolute top-3 right-4 flex items-center gap-1.5 text-xs font-medium text-slate-500 bg-white/80 backdrop-blur-sm px-2 py-1 rounded border border-slate-200 shadow-sm">
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <path d="M9 22V12h6v10"/>
+            <path d="M6 12h12"/>
+            <path d="M8 6h8"/>
+            <rect x="10" y="15" width="4" height="4" rx="0.5"/>
+          </svg>
+          <span>Area B — Mall</span>
         </div>
-        <div className="absolute bottom-3 left-4 text-xs font-medium text-slate-500 bg-white/70 px-2 py-1 rounded">
-          🏢 Area C — Office
+
+        <div className="absolute bottom-3 left-4 flex items-center gap-1.5 text-xs font-medium text-slate-500 bg-white/80 backdrop-blur-sm px-2 py-1 rounded border border-slate-200 shadow-sm">
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="12.01"/>
+            <path d="M8 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>
+          </svg>
+          <span>Area C — Office</span>
         </div>
 
         {/* Bottleneck dots */}

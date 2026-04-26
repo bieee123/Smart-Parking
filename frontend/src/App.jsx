@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard';
 import LiveCamera from './pages/LiveCamera';
 import ParkingMap from './pages/ParkingMap';
 import AnalyticsDashboard from './pages/AnalyticsDashboard';
+import SimulatorPage from './pages/SimulatorPage';
+import ExecutiveSummaryPage from './pages/ExecutiveSummaryPage';
 
 function NotFound() {
   return (
@@ -64,6 +66,30 @@ function App() {
           <ProtectedRoute>
             <DashboardLayout>
               <AnalyticsDashboard />
+            </DashboardLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Simulator */}
+      <Route
+        path="/simulator"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout>
+              <SimulatorPage />
+            </DashboardLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Executive Summary */}
+      <Route
+        path="/executive-summary"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout>
+              <ExecutiveSummaryPage />
             </DashboardLayout>
           </ProtectedRoute>
         }
